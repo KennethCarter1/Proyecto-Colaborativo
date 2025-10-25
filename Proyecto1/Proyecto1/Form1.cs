@@ -68,6 +68,5 @@ namespace Proyecto1
         {
             acciones.mostrarHistorial();
         }
-
     }
 }

@@ -32,7 +32,7 @@ namespace Proyecto1
         public void cargaDatos()
         {
             BaseDeDatos bd = new BaseDeDatos();
-            if (bd.verificarConexion())
+            if (bd.Conectar())
                 MessageBox.Show("Hecho por Kenneth y Ditzel. Conexión exitosa a la base de datos.");
             else
                 MessageBox.Show("Hecho por Kenneth y Ditzel. No se pudo conectar a la base de datos.");
@@ -207,11 +207,30 @@ namespace Proyecto1
 
                 operacion = operacion.Replace("%", "/100");
 
-                var resultado = new System.Data.DataTable().Compute(operacion, null);
-                lblResultado.Text = resultado.ToString();
+                var resultadoObj = new System.Data.DataTable().Compute(operacion, null);
 
-                GuardarEnHistorial(operacion, resultado.ToString());
+                double resultadoDouble;
+                try
+                {
+                    resultadoDouble = Convert.ToDouble(resultadoObj);
 
+                    // Validar si es NaN o infinito
+                    if (double.IsNaN(resultadoDouble) || double.IsInfinity(resultadoDouble))
+                    {
+                        lblResultado.Text = "Error";
+                        txtpantalla.Clear();
+                        return; 
+                    }
+                }
+                catch
+                {
+                    lblResultado.Text = "Error";
+                    txtpantalla.Clear();
+                    return;
+                }
+
+                lblResultado.Text = resultadoDouble.ToString();
+                GuardarEnHistorial(operacion, resultadoDouble.ToString());
                 txtpantalla.Clear();
             }
             catch
@@ -220,6 +239,7 @@ namespace Proyecto1
                 txtpantalla.Clear();
             }
         }
+
 
         public void detectarObjeto(Object sender)
         {

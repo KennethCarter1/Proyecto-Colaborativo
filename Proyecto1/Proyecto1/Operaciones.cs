@@ -18,9 +18,9 @@ namespace Proyecto1
         }
 
         // Método para calcular potencia
-        public static double CalcularPotencia(double baseNum, double exponente)
+        public static double CalcularPotencia(double baseA, double exponente)
         {
-            return Math.Pow(baseNum, exponente);
+            return Math.Pow(baseA, exponente);
         }
 
         // Método para calcular raíz cuadrada

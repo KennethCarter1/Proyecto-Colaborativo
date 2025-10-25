@@ -359,10 +359,12 @@
             // 
             // lboxcalculos
             // 
+            this.lboxcalculos.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lboxcalculos.FormattingEnabled = true;
+            this.lboxcalculos.ItemHeight = 30;
             this.lboxcalculos.Location = new System.Drawing.Point(3, 34);
             this.lboxcalculos.Name = "lboxcalculos";
-            this.lboxcalculos.Size = new System.Drawing.Size(311, 485);
+            this.lboxcalculos.Size = new System.Drawing.Size(311, 484);
             this.lboxcalculos.TabIndex = 1;
             // 
             // label1
@@ -380,7 +382,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 541);
+            this.ClientSize = new System.Drawing.Size(273, 541);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.btnMasMenos);
