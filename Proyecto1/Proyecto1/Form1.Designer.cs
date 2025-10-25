@@ -280,7 +280,6 @@
             this.btnPorcentaje.TabIndex = 21;
             this.btnPorcentaje.Text = "%";
             this.btnPorcentaje.UseVisualStyleBackColor = true;
-            this.btnPorcentaje.Click += new System.EventHandler(this.btnPorcentaje_Click);
             // 
             // btnElevarAlCuadrado
             // 
@@ -365,7 +364,6 @@
             this.lboxcalculos.Name = "lboxcalculos";
             this.lboxcalculos.Size = new System.Drawing.Size(311, 485);
             this.lboxcalculos.TabIndex = 1;
-            this.lboxcalculos.SelectedIndexChanged += new System.EventHandler(this.lboxcalculos_SelectedIndexChanged);
             // 
             // label1
             // 
