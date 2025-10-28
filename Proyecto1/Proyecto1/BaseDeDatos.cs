@@ -6,7 +6,7 @@ namespace Proyecto1
 {
     internal class BaseDeDatos
     {
-        private string connectionString = @"Server=localhost;Database=Historial;TrustServerCertificate=True;Integrated Security=True;";
+        private string conectar = @"Server=localhost;Database=Historial;TrustServerCertificate=True;Integrated Security=True;";
         private SqlConnection conexion;
 
         // Conectar
@@ -14,12 +14,13 @@ namespace Proyecto1
         {
             try
             {
-                conexion = new SqlConnection(connectionString);
+                conexion = new SqlConnection(conectar);
                 conexion.Open();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Error(Metodo Conectar) " + ex.Message);
                 return false;
             }
         }
@@ -27,8 +28,7 @@ namespace Proyecto1
         // Cerrar conexión
         public void Cerrar()
         {
-            if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
-                conexion.Close();
+            conexion.Close();
         }
 
         // Ejecutar comandos
@@ -41,7 +41,8 @@ namespace Proyecto1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener historial: " + ex.Message);
+                MessageBox.Show("Error(Metodo Ejecutar): " + ex.Message);
+               
             }
 
         }
@@ -56,7 +57,7 @@ namespace Proyecto1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener historial: " + ex.Message);
+                MessageBox.Show("Error (Metodo Leer): " + ex.Message);
                 return null;
             }
         }

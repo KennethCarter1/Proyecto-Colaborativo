@@ -20,6 +20,7 @@ namespace Proyecto1
 
         public Acciones(Form form, TextBox txt, Label lbl, ListBox lbox, Panel panel, Button btnHistorial, Button btnIgual)
         {
+
             formulario = form;
             txtpantalla = txt;
             lblResultado = lbl;
@@ -37,10 +38,7 @@ namespace Proyecto1
             else
                 MessageBox.Show("Hecho por Kenneth y Ditzel. No se pudo conectar a la base de datos.");
         }
-        private void btnNumero_Click(object sender, EventArgs e)
-        {
-            detectarObjeto(sender);
-        }
+
 
         public void Inicio()
         {
@@ -51,8 +49,9 @@ namespace Proyecto1
                 {
                     if (ctrl is Button btn)
                     {
-                        bool esBtnIgual = (btn == btnIgual1);
-                        Visual.AplicarEstiloBoton(btn, esBtnIgual);
+                        bool boton = (btn == btnIgual1);
+                        Visual.AplicarEstiloBoton(btn, boton);
+                        //Visual.Redondear(btn, 20);
                     }
                 }
 
@@ -69,6 +68,11 @@ namespace Proyecto1
                     }
                 }
             }
+        }
+
+        private void btnNumero_Click(object sender, EventArgs e)
+        {
+            detectarObjeto(sender);
         }
 
         public void eliminarDato()
@@ -99,7 +103,7 @@ namespace Proyecto1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar el historial: " + ex.Message);
+                MessageBox.Show("Error al mostrar los datos: " + ex.Message);
             }
         }
 
@@ -111,7 +115,7 @@ namespace Proyecto1
                 formulario.Size = new Size(620, 580);
                 btnMostrarHistorial.Text = "Ocultar Historial";
 
-                CargarTodasLasOperaciones();
+                mostrarDatos();
             }
             else
             {
@@ -125,8 +129,14 @@ namespace Proyecto1
         {
             try
             {
-                double numero = Convert.ToDouble(txtpantalla.Text);
-                lblResultado.Text = Operaciones.CalcularRaiz(numero).ToString();
+                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
+                double numero = Convert.ToDouble(resultado1);
+                double resultado = Operaciones.CalcularRaiz(numero);
+                lblResultado.Text = resultado.ToString();
+
+                // Guardar en historial
+                GuardarDatos($"√{numero}", resultado.ToString());
+
                 txtpantalla.Clear();
             }
             catch (Exception ex)
@@ -140,8 +150,14 @@ namespace Proyecto1
         {
             try
             {
-                int numero = Convert.ToInt32(txtpantalla.Text);
-                lblResultado.Text = Operaciones.CalcularFactorial(numero).ToString();
+                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
+                int numero = Convert.ToInt32(resultado1);
+                int resultado = Operaciones.CalcularFactorial(numero);
+                lblResultado.Text = resultado.ToString();
+
+                // Guardar en historial
+                GuardarDatos($"{numero}!", resultado.ToString());
+
                 txtpantalla.Clear();
             }
             catch (Exception ex)
@@ -153,35 +169,51 @@ namespace Proyecto1
 
         public void cuadrado()
         {
-            double numero = Convert.ToDouble(txtpantalla.Text);
-            lblResultado.Text = Operaciones.CalcularPotencia(numero, 2).ToString();
-            txtpantalla.Clear();
+            try
+            {
+                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
+                double numero = Convert.ToDouble(resultado1);
+                double resultado = Operaciones.CalcularPotencia(numero, 2);
+                lblResultado.Text = resultado.ToString();
+
+                // Guardar en historial
+                GuardarDatos($"{numero}²", resultado.ToString());
+
+                txtpantalla.Clear();
+            }
+            catch (Exception ex)
+            {
+                lblResultado.Text = "Error: " + ex.Message;
+                txtpantalla.Clear();
+            }
         }
+
 
         public void cambioSigno()
         {
-            if (!string.IsNullOrWhiteSpace(txtpantalla.Text))
+            if (txtpantalla.Text != null && txtpantalla.Text.Trim() != "")
             {
                 double numero = Convert.ToDouble(txtpantalla.Text);
                 txtpantalla.Text = Operaciones.CambiarSigno(numero).ToString();
             }
-            else if (!string.IsNullOrWhiteSpace(lblResultado.Text))
+            else if (lblResultado.Text != null && lblResultado.Text.Trim() != "")
             {
                 double numero = Convert.ToDouble(lblResultado.Text);
                 lblResultado.Text = Operaciones.CambiarSigno(numero).ToString();
             }
+
         }
 
-        private void GuardarEnHistorial(string operacion, string resultadoStr)
+        private void GuardarDatos(string operacion, string resultado)
         {
             try
             {
                 CalculadoraDB db = new CalculadoraDB();
-                db.GuardarOperacion(operacion, Convert.ToDouble(resultadoStr));
+                db.GuardarOperacion(operacion, Convert.ToDouble(resultado));
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar en el historial: " + ex.Message);
+                MessageBox.Show("Error al guardar los datos: " + ex.Message);
             }
         }
 
@@ -191,9 +223,9 @@ namespace Proyecto1
             {
                 string operacion = txtpantalla.Text;
 
-                if (string.IsNullOrWhiteSpace(operacion))
+                if (operacion == null || operacion.Trim() == "")
                 {
-                    if (string.IsNullOrWhiteSpace(ultimaOperacion))
+                    if (ultimaOperacion == null || ultimaOperacion.Trim() == "")
                     {
                         lblResultado.Text = "0";
                         return;
@@ -205,17 +237,14 @@ namespace Proyecto1
                     ultimaOperacion = operacion;
                 }
 
+
                 operacion = operacion.Replace("%", "/100");
 
-                var resultadoObj = new System.Data.DataTable().Compute(operacion, null);
-
-                double resultadoDouble;
+                double resultadoTotal = Operaciones.CalcularOperacion(operacion);
                 try
                 {
-                    resultadoDouble = Convert.ToDouble(resultadoObj);
-
                     // Validar si es NaN o infinito
-                    if (double.IsNaN(resultadoDouble) || double.IsInfinity(resultadoDouble))
+                    if (double.IsNaN(resultadoTotal) || double.IsInfinity(resultadoTotal))
                     {
                         lblResultado.Text = "Error";
                         txtpantalla.Clear();
@@ -229,8 +258,8 @@ namespace Proyecto1
                     return;
                 }
 
-                lblResultado.Text = resultadoDouble.ToString();
-                GuardarEnHistorial(operacion, resultadoDouble.ToString());
+                lblResultado.Text = resultadoTotal.ToString();
+                GuardarDatos(operacion, resultadoTotal.ToString());
                 txtpantalla.Clear();
             }
             catch
@@ -245,11 +274,6 @@ namespace Proyecto1
         {
             Button btn = (Button)sender;
             txtpantalla.Text += btn.Text;
-        }
-
-        private void CargarTodasLasOperaciones()
-        {
-            mostrarDatos();
         }
 
     }

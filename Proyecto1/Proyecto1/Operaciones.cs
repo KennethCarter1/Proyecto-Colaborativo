@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.ConstrainedExecution;
+using NCalc;
 using System.Windows.Forms;
 
 namespace Proyecto1
@@ -9,8 +9,12 @@ namespace Proyecto1
         // Método para calcular factorial
         public static int CalcularFactorial(int numero)
         {
-            if (numero < 0)
+            if (numero < 0) {
                 MessageBox.Show("el factorial no puede ser negativo");
+                return 0; 
+
+            }
+                
             if (numero <= 1)
                 return 1;
 
@@ -27,7 +31,12 @@ namespace Proyecto1
         public static double CalcularRaiz(double numero)
         {
             if (numero < 0)
+            {
                 MessageBox.Show("No se puede calcular la raíz de un número negativo");
+                return 0;
+            }
+
+
 
             return Math.Sqrt(numero);
         }
@@ -35,7 +44,22 @@ namespace Proyecto1
         // Método para cambiar signo
         public static double CambiarSigno(double numero)
         {
-            return -numero;
+            return numero * -1;
         }
+
+        public static double CalcularOperacion(string expresion)
+        {
+            try
+            {
+                Expression e = new Expression(expresion);
+                return Convert.ToDouble(e.Evaluate());
+            }
+            catch
+            {
+                MessageBox.Show("Error en la operación");
+                return 0;
+            }
+        }
+
     }
 }

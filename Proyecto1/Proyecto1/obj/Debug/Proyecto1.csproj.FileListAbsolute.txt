@@ -9,3 +9,9 @@ C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\obj\Debug\
 C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\obj\Debug\Proyecto1.pdb
 C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\obj\Debug\Proyecto1.exe.config
 C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\obj\Debug\Proyecto1.Calculadora.resources
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\bin\Debug\NCalc.dll
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.Up2Date
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\bin\Debug\System.CodeDom.dll
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kenne\source\repos\Proyecto-Colaborativo\Proyecto1\Proyecto1\bin\Debug\System.CodeDom.xml

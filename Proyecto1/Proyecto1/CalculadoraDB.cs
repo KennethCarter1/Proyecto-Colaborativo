@@ -16,25 +16,25 @@ namespace Proyecto1
                 try
                 {
                     // Insertar en operacion
-                    string queryOperacion = $"INSERT INTO operacion (expresion) VALUES ('{operacion}')";
-                    bd.Ejecutar(queryOperacion);
+                    string query = $"INSERT INTO operacion VALUES ('{operacion}')";
+                    bd.Ejecutar(query);
 
                     // Obtener el último id_operacion
-                    string queryUltimoOperacion = "SELECT MAX(id_operacion) FROM operacion";
-                    SqlDataReader readerOp = bd.Leer(queryUltimoOperacion);
+                    string queryId1 = "SELECT MAX(id_operacion) FROM operacion";
+                    SqlDataReader reader = bd.Leer(queryId1);
                     int idOperacion = 0;
-                    if (readerOp.Read())
-                        idOperacion = readerOp.GetInt32(0);
-                    readerOp.Close();
+                    if (reader.Read())
+                        idOperacion = reader.GetInt32(0);
+                    reader.Close();
 
 
                     // Insertar en resultado
-                    string queryResultado = $"INSERT INTO resultado (resultado) VALUES ({resultado})";
-                    bd.Ejecutar(queryResultado);
+                    string query2 = $"INSERT INTO resultado VALUES ({resultado})";
+                    bd.Ejecutar(query2);
 
                     // Obtener el último id_resultado
-                    string queryUltimoResultado = "SELECT MAX(id_resultado) FROM resultado";
-                    SqlDataReader readerRes = bd.Leer(queryUltimoResultado);
+                    string queryId2 = "SELECT MAX(id_resultado) FROM resultado";
+                    SqlDataReader readerRes = bd.Leer(queryId2);
                     int idResultado = 0;
                     if (readerRes.Read())
                         idResultado = readerRes.GetInt32(0);
@@ -69,13 +69,14 @@ namespace Proyecto1
                 SqlDataReader reader = null;
                 try
                 {
-                    string query = @"
+                    string query = 
+                    @"
                     SELECT o.expresion, r.resultado, c.fecha_operacion
                     FROM calculadora c, operacion o, resultado r
                     WHERE c.id_operacion = o.id_operacion
-                      AND c.id_resultado = r.id_resultado
+                    AND c.id_resultado = r.id_resultado
                     ORDER BY c.fecha_operacion DESC;
-";
+                    ";
 
                     reader = bd.Leer(query);
 
@@ -89,7 +90,7 @@ namespace Proyecto1
                         DateTime fechaHora = reader.GetDateTime(2);
                         string fecha = fechaHora.ToString("dd/MM/yyyy");
 
-                        // Si cambió la fecha, agregamos la fecha arriba
+                       
                         if (fecha != fechaActual || primeraFila)
                         {
                             historial.Add($"---------{fecha}----------");
@@ -98,7 +99,7 @@ namespace Proyecto1
                         }
 
                         historial.Add($"{expresion} = {resultado}");
-                        historial.Add("-----------------------------------");
+                        historial.Add("----------------------------------");
                     }
                 }
                 catch (Exception ex)
@@ -115,7 +116,7 @@ namespace Proyecto1
             }
             else
             {
-                MessageBox.Show("Error al obtener historial: ");
+                MessageBox.Show("Error al Conectar verifique");
             }
 
             return historial;

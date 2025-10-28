@@ -22,10 +22,10 @@ namespace Proyecto1
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
 
-            RedondearBordes(btn, 40);
+            
         }
-
-        private static void RedondearBordes(Control control, int radio)
+        /*
+        public static void Redondear(Control control, int radio)
         {
             GraphicsPath path = new GraphicsPath();
             Rectangle rect = new Rectangle(0, 0, control.Width, control.Height);
@@ -36,5 +36,6 @@ namespace Proyecto1
             path.CloseAllFigures();
             control.Region = new Region(path);
         }
+        */
     }
 }

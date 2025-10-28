@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculadora));
             this.txtpantalla = new System.Windows.Forms.TextBox();
             this.btnFactorial = new System.Windows.Forms.Button();
             this.btnSiete = new System.Windows.Forms.Button();
@@ -382,7 +383,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 541);
+            this.ClientSize = new System.Drawing.Size(282, 541);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.btnMasMenos);
@@ -412,6 +413,7 @@
             this.Controls.Add(this.btnFactorial);
             this.Controls.Add(this.txtpantalla);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Calculadora";
             this.Text = "Calculadora";
             this.Load += new System.EventHandler(this.Calculadora_Load);
