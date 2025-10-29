@@ -1,0 +1,151 @@
+Elementos:
+
+Pantalla:
+txtpantalla
+
+Botones:
+
+Clear Entry (CE):
+btnBorrarTodo
+lblBorrarTodo
+
+Clear (C):
+btnBorrarElemento
+lblBorrarElemento
+
+Raíz Cuadrada:
+btnRaizCuadrada
+lblRaizCuadrada
+
+Mostrar historial:
+btnMostrarHistorial
+lblMostrarHistorial
+
+Factorial:
+btnFactorial
+lblFactorial
+
+Potencia Dos:
+btnElevarAlCuadrado
+lblElebarAlCuadrado
+
+Porcentaje:
+btnPorcentaje
+lblPorcentaje
+
+División:
+btnDivision
+lblDivision
+
+Siete:
+btnSiete
+lblSiete
+
+Ocho:
+btnOcho
+lblOcho
+
+Nueve:
+btnNueve
+lblNueve
+
+Multiplicación:
+btnMultiplicacion
+lblMultiplicacion
+
+Cuatro:
+btnCuatro
+lblCuatro
+
+Cinco:
+btnCinco
+lblCinco
+
+Seis:
+btnSeis
+lblSeis
+
+Resta:
+btnResta
+lblResta
+
+Uno:
+btnUno
+lblUno
+
+Dos:
+btnDos
+lblDos
+
+Tres:
+btnTres
+lblTres
+
+Suma:
+btnSuma
+lblSuma
+
+Cero:
+btnCero
+lblCero
+
+Punto decimal:
+btnPuntoDecimal
+lblPuntoDecimal
+
+Igual:
+btnIgual
+lblIgual
+
+Funciones:
+
+Clear Entry (CE):
+funcionBorrarTodo ()
+
+Clear(C)
+funcionBorrarCaracter ()
+
+Raíz Cuadrada:
+funcionCalcularRaiz ()
+
+Mostrar Historial:
+funcionMostrarHistorial ()
+
+Factorial:
+funcionCalcularFactorial ()
+
+Número elevado al cuadrado:
+funcionMultiplicarAlCuadrado ()
+
+Porcentaje:
+funcionCalcularPorcentaje ()
+
+Division:
+funcionDividir ()
+
+Multiplicacion:
+funcionMultiplicar ()
+
+Resta:
+funcionRestar ()
+
+Suma:
+funcionSumar ()
+
+Igual:
+funcionMostrarResultado ()
+funcionGuardarOperacion ()
+
+Operaciones:
+
+funcionBorrarTodo (): solo borra el texto mostrado en pantalla, no elimina nada realmente si ya se guardó en la base de datos. Es como reiniciar la wea.
+
+funcionBorrarCaracter (): elimina solo el ultimo caracter ingresado.
+
+funcionCalcularRaiz (): asegurarse que el numero no es negativo, en caso de serlo debe dar error.
+
+funcionMostrarHistorial(): no si debe mostrarse todo en la pantallita o si se debe ir todo y quedar solo la pantalla y mostrar todo dividido entre fechas. en cualquier caso, debe mostrarse desde lo mas reciente y baja a lo mas antiguo, tipo se debe mostrar como si fuera una pila, lo que entra va hacia abajo y las cosas que entran se colocar arriba y así.
+
+funcionMostrarResultado (): se debe mostrar el resultado de la operación que se ingresó, pero no borrar la operación, solo colocarla arriba y el resultado abajo de esta. 
+
+funcionGuardarOperacion (): cuando se muestra el resultado, esa operación se debe guardar en la base de datos.
