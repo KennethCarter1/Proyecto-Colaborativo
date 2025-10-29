@@ -108,12 +108,12 @@ namespace Proyecto1
 
         public void mostrarHistorial()
         {
-            if (btnMostrarHistorial.Text == "Mostrar Historial")
+            if (btnMostrarHistorial.Text == "Mostrar Calculos")
 
             {
                 panelHistorial.Visible = true;
                 formulario.Size = new Size(620, 580);
-                btnMostrarHistorial.Text = "Ocultar Historial";
+                btnMostrarHistorial.Text = "Ocultar Calculos";
 
                 mostrarDatos();
             }
@@ -121,7 +121,7 @@ namespace Proyecto1
             {
                 panelHistorial.Visible = false;
                 formulario.Size = new Size(299, 580);
-                btnMostrarHistorial.Text = "Mostrar Historial";
+                btnMostrarHistorial.Text = "Mostrar Calculos";
             }
         }
 
