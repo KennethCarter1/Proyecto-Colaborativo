@@ -25,18 +25,19 @@ namespace Proyecto1
         // Método para calcular potencia
         public static double CalcularPotencia(double baseA, double exponente)
         {
-            return Math.Pow(baseA, exponente);
+            return Math.Round(Math.Pow(baseA, exponente), 4);
         }
+
 
         // Método para calcular raíz cuadrada
         public static double CalcularRaiz(double numero)
         {
             if (numero >= 0)
             {
-                return Math.Sqrt(numero);
-                
+                return Math.Round(Math.Sqrt(numero), 4);
             }
             return 0;
+
         }
 
         // Método para cambiar signo
@@ -56,15 +57,16 @@ namespace Proyecto1
             }
             catch
             {
-                MessageBox.Show("Error en la operación");
+
                 return false;
             }
         }
 
-        public static double resultado(double resultado)
+        public static double resultado()
         {
-            return resultadoOperacion;
+            return Math.Round(resultadoOperacion, 4);
         }
+
 
     }
 }

@@ -63,6 +63,7 @@ namespace Proyecto1
         {
             List<string> historial = new List<string>();
             BaseDeDatos bd = new BaseDeDatos();
+           
 
             if (bd.Conectar())
             {

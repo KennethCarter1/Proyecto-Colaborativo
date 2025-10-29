@@ -43,6 +43,7 @@ namespace Proyecto1
         {
             {
                 formulario.BackColor = Color.FromArgb(84, 84, 84);
+                lboxcalculos.HorizontalScrollbar = true;
 
                 foreach (Control ctrl in formulario.Controls)
                 {
@@ -82,7 +83,7 @@ namespace Proyecto1
         public void borrarTodo()
         {
             txtpantalla.Clear();
-            lblResultado.Text = "";
+            MessageBox.Show("Error");
         }
 
         public void mostrarDatos()
@@ -131,14 +132,15 @@ namespace Proyecto1
             {
                 if (string.IsNullOrWhiteSpace(txtpantalla.Text))
                 {
-                    lblResultado.Text = "0";
+                    MessageBox.Show("Error espacio vacio");
+                    txtpantalla.Clear();
                     return;
                 }
 
                 bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
                 if (!calcular)
                 {
-                    lblResultado.Text = "Error";
+                    MessageBox.Show("Error en operacion");
                     txtpantalla.Clear();
                     return;
                 }
@@ -154,14 +156,14 @@ namespace Proyecto1
                 }
                 else
                 {
-                    lblResultado.Text = "0";
+                    MessageBox.Show("Error");
                     txtpantalla.Clear();
                     return;
                 }
             }
             catch
             {
-                lblResultado.Text = "Error";
+                MessageBox.Show("Error");
                 txtpantalla.Clear();
             }
         }
@@ -175,24 +177,33 @@ namespace Proyecto1
             {
                 if (string.IsNullOrWhiteSpace(txtpantalla.Text))
                 {
-                    lblResultado.Text = "0";
+                    MessageBox.Show("Error espacio vacio");
+                    txtpantalla.Clear();
                     return;
                 }
 
                 bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
                 if (!calcular)
                 {
-                    lblResultado.Text = "Error";
+                    MessageBox.Show("Error");
                     txtpantalla.Clear();
                     return;
                 }
 
                 double numero = Operaciones.resultadoOperacion;
-                int valor = Convert.ToInt32(numero);
+
+                if (numero % 1 != 0)
+                {
+                    MessageBox.Show("Solo se permiten números enteros.");
+                    txtpantalla.Clear();
+                    return;
+                }
+
+                int valor = (int)numero;
 
                 if (valor < 0)
                 {
-                    MessageBox.Show("El factorial no puede ser negativo");
+                    MessageBox.Show("El factorial no puede ser negativo.");
                     txtpantalla.Clear();
                     return;
                 }
@@ -204,26 +215,21 @@ namespace Proyecto1
             }
             catch
             {
-                lblResultado.Text = "Error";
+                MessageBox.Show("Error");
                 txtpantalla.Clear();
             }
         }
+
 
 
         public void cuadrado()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtpantalla.Text))
-                {
-                    lblResultado.Text = "0";
-                    return;
-                }
-
                 bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
                 if (!calcular)
                 {
-                    lblResultado.Text = "Error";
+                    MessageBox.Show("Error");
                     txtpantalla.Clear();
                     return;
                 }
@@ -237,7 +243,7 @@ namespace Proyecto1
             }
             catch
             {
-                lblResultado.Text = "Error";
+                MessageBox.Show("Error");
                 txtpantalla.Clear();
             }
         }
@@ -280,7 +286,8 @@ namespace Proyecto1
                 // Si no hay nada en pantalla
                 if (string.IsNullOrWhiteSpace(operacion))
                 {
-                    lblResultado.Text = "0";
+                    MessageBox.Show("Error");
+                    txtpantalla.Clear();
                     return;
                 }
 
@@ -295,7 +302,7 @@ namespace Proyecto1
                     // Validar NaN o infinito
                     if (double.IsNaN(resultadoTotal) || double.IsInfinity(resultadoTotal))
                     {
-                        lblResultado.Text = "Error";
+                        MessageBox.Show("Error");
                         txtpantalla.Clear();
                         return;
                     }
@@ -310,13 +317,13 @@ namespace Proyecto1
                 }
                 else
                 {
-                    lblResultado.Text = "Error";
+                    MessageBox.Show("Error");
                     txtpantalla.Clear();
                 }
             }
             catch
             {
-                lblResultado.Text = "Error";
+                MessageBox.Show("Error");
                 txtpantalla.Clear();
             }
         }

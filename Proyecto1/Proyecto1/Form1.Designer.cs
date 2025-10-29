@@ -151,7 +151,7 @@
             this.btnMostrarHistorial.Name = "btnMostrarHistorial";
             this.btnMostrarHistorial.Size = new System.Drawing.Size(254, 55);
             this.btnMostrarHistorial.TabIndex = 8;
-            this.btnMostrarHistorial.Text = "Mostrar Historial";
+            this.btnMostrarHistorial.Text = "Mostrar Calculos";
             this.btnMostrarHistorial.UseVisualStyleBackColor = true;
             this.btnMostrarHistorial.Click += new System.EventHandler(this.btnMostrarHistorial_Click);
             // 
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 541);
+            this.ClientSize = new System.Drawing.Size(275, 541);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.btnMasMenos);
