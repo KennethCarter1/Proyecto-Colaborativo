@@ -1,0 +1,61 @@
+Colores para la calculadora:
+
+Fondo de la calculadora:
+HEX: #545454
+RGB: 84 84 84
+
+Fondo de los botones:
+HEX: #d9d9d9
+RGB: 217 217 217
+
+Fondo del botón de igual (=):
+HEX: #ec008c
+RGB: 236 0 140
+
+Texto de botones:
+HEX: #ec008c
+RGB: 236 0 140
+
+Texto de botón de igual (=):
+HEX: #ffffff
+RGB: 255 255 255
+
+Pantalla de calculadora:
+HEX: #ffffff
+RGB: 255 255 255
+
+Texto pantalla de calculadora:
+HEX: #000000
+RGB: 0 0 0
+
+Fuente de la calculadora:
+
+Arial con negrita para toda la calculadora
+
+Tamaños de las fuentes:
+
+Números: 25pt - 33.33px
+CE y C: 18pt - 24px
+Raíz cuadrada, porcentaje, división, multiplicación, suma: 23pt - 30.66px
+Punto: 28.2pt - 37.59px
+Igual: 30.7pt - 40.93px
+Menos: 37.9pt - 50.53px
+Mostrar historial: 8pt - 10.66px
+Factorial y potencia: 24.6pt - 32.8px
+Texto de historial: 12.8pt - 17.06px
+Texto de cálculos y resultado: 30pt - 40px
+
+Tamaño de elementos:
+
+Calculadora: 
+ancho: 86mm - 325.04px
+alto: 147.67mm - 558,12px
+Botones:
+ancho: 15.91mm - 60,13px
+alto: 14.58mm - 55,10px
+Botón de igual(=):
+ancho: 34.69mm - 131,11px
+alto: 14.58mm - 55,10px
+Pantalla de calculadora:
+ancho: 73.34mm - 277,19px
+alto: 39.33mm - 148,64px
