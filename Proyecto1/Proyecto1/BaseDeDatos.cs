@@ -6,7 +6,11 @@ namespace Proyecto1
 {
     internal class BaseDeDatos
     {
-        private string conectar = @"Server=localhost;Database=Historial;TrustServerCertificate=True;Integrated Security=True;";
+        private string conectar = @"Server=localhost;
+                                    Database=Historial;
+                                    TrustServerCertificate=True;
+                                    Integrated Security=True;
+                                   ";
         private SqlConnection conexion;
 
         // Conectar

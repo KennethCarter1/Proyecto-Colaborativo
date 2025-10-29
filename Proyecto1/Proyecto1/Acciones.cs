@@ -16,7 +16,6 @@ namespace Proyecto1
         private Button btnMostrarHistorial;
         private Button btnIgual1;
         private Form formulario;
-        private string ultimaOperacion = "";
 
         public Acciones(Form form, TextBox txt, Label lbl, ListBox lbox, Panel panel, Button btnHistorial, Button btnIgual)
         {
@@ -50,8 +49,7 @@ namespace Proyecto1
                     if (ctrl is Button btn)
                     {
                         bool boton = (btn == btnIgual1);
-                        Visual.AplicarEstiloBoton(btn, boton);
-                        //Visual.Redondear(btn, 20);
+                        Visual.Estilo(btn, boton);
                     }
                 }
 
@@ -91,6 +89,7 @@ namespace Proyecto1
         {
             try
             {
+
                 lboxcalculos.Items.Clear();
 
                 CalculadoraDB db = new CalculadoraDB();
@@ -110,6 +109,7 @@ namespace Proyecto1
         public void mostrarHistorial()
         {
             if (btnMostrarHistorial.Text == "Mostrar Historial")
+
             {
                 panelHistorial.Visible = true;
                 formulario.Size = new Size(620, 580);
@@ -129,77 +129,131 @@ namespace Proyecto1
         {
             try
             {
-                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
-                double numero = Convert.ToDouble(resultado1);
-                double resultado = Operaciones.CalcularRaiz(numero);
-                lblResultado.Text = resultado.ToString();
+                if (string.IsNullOrWhiteSpace(txtpantalla.Text))
+                {
+                    lblResultado.Text = "0";
+                    return;
+                }
 
-                // Guardar en historial
-                GuardarDatos($"√{numero}", resultado.ToString());
+                bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
+                if (!calcular)
+                {
+                    lblResultado.Text = "Error";
+                    txtpantalla.Clear();
+                    return;
+                }
 
-                txtpantalla.Clear();
+                double numero = Operaciones.resultadoOperacion;
+                if (numero >= 0)
+                {
+                    double resultado = Operaciones.CalcularRaiz(numero);
+
+                    lblResultado.Text = resultado.ToString();
+                    GuardarDatos($"√{numero}", resultado.ToString());
+                    txtpantalla.Clear();
+                }
+                else
+                {
+                    lblResultado.Text = "0";
+                    txtpantalla.Clear();
+                    return;
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                lblResultado.Text = "Error: " + ex.Message;
+                lblResultado.Text = "Error";
                 txtpantalla.Clear();
             }
         }
+
+
+
 
         public void factorial()
         {
             try
             {
-                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
-                int numero = Convert.ToInt32(resultado1);
-                int resultado = Operaciones.CalcularFactorial(numero);
+                if (string.IsNullOrWhiteSpace(txtpantalla.Text))
+                {
+                    lblResultado.Text = "0";
+                    return;
+                }
+
+                bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
+                if (!calcular)
+                {
+                    lblResultado.Text = "Error";
+                    txtpantalla.Clear();
+                    return;
+                }
+
+                double numero = Operaciones.resultadoOperacion;
+                int valor = Convert.ToInt32(numero);
+
+                if (valor < 0)
+                {
+                    MessageBox.Show("El factorial no puede ser negativo");
+                    txtpantalla.Clear();
+                    return;
+                }
+
+                int resultado = Operaciones.CalcularFactorial(valor);
                 lblResultado.Text = resultado.ToString();
-
-                // Guardar en historial
-                GuardarDatos($"{numero}!", resultado.ToString());
-
+                GuardarDatos($"{valor}!", resultado.ToString());
                 txtpantalla.Clear();
             }
-            catch (Exception ex)
+            catch
             {
-                lblResultado.Text = "Error: " + ex.Message;
+                lblResultado.Text = "Error";
                 txtpantalla.Clear();
             }
         }
+
 
         public void cuadrado()
         {
             try
             {
-                string resultado1 = Operaciones.CalcularOperacion(txtpantalla.Text).ToString();
-                double numero = Convert.ToDouble(resultado1);
+                if (string.IsNullOrWhiteSpace(txtpantalla.Text))
+                {
+                    lblResultado.Text = "0";
+                    return;
+                }
+
+                bool calcular = Operaciones.CalcularOperacion(txtpantalla.Text);
+                if (!calcular)
+                {
+                    lblResultado.Text = "Error";
+                    txtpantalla.Clear();
+                    return;
+                }
+
+                double numero = Operaciones.resultadoOperacion;
                 double resultado = Operaciones.CalcularPotencia(numero, 2);
+
                 lblResultado.Text = resultado.ToString();
-
-                // Guardar en historial
                 GuardarDatos($"{numero}²", resultado.ToString());
-
                 txtpantalla.Clear();
             }
-            catch (Exception ex)
+            catch
             {
-                lblResultado.Text = "Error: " + ex.Message;
+                lblResultado.Text = "Error";
                 txtpantalla.Clear();
             }
         }
 
 
+
         public void cambioSigno()
         {
-            if (txtpantalla.Text != null && txtpantalla.Text.Trim() != "")
+            try
             {
                 double numero = Convert.ToDouble(txtpantalla.Text);
                 txtpantalla.Text = Operaciones.CambiarSigno(numero).ToString();
             }
-            else if (lblResultado.Text != null && lblResultado.Text.Trim() != "")
+            catch(Exception)
             {
-                double numero = Convert.ToDouble(lblResultado.Text);
-                lblResultado.Text = Operaciones.CambiarSigno(numero).ToString();
+                MessageBox.Show("Error al cambiar de signo");
             }
 
         }
@@ -223,44 +277,42 @@ namespace Proyecto1
             {
                 string operacion = txtpantalla.Text;
 
-                if (operacion == null || operacion.Trim() == "")
+                // Si no hay nada en pantalla
+                if (string.IsNullOrWhiteSpace(operacion))
                 {
-                    if (ultimaOperacion == null || ultimaOperacion.Trim() == "")
-                    {
-                        lblResultado.Text = "0";
-                        return;
-                    }
-                    operacion = ultimaOperacion;
+                    lblResultado.Text = "0";
+                    return;
                 }
-                else
-                {
-                    ultimaOperacion = operacion;
-                }
-
 
                 operacion = operacion.Replace("%", "/100");
 
-                double resultadoTotal = Operaciones.CalcularOperacion(operacion);
-                try
+                bool verificacion = Operaciones.CalcularOperacion(operacion);
+
+                if (verificacion)
                 {
-                    // Validar si es NaN o infinito
+                    double resultadoTotal = Operaciones.resultadoOperacion;
+
+                    // Validar NaN o infinito
                     if (double.IsNaN(resultadoTotal) || double.IsInfinity(resultadoTotal))
                     {
                         lblResultado.Text = "Error";
                         txtpantalla.Clear();
-                        return; 
+                        return;
                     }
+
+                    lblResultado.Text = resultadoTotal.ToString();
+                    if (operacion.Contains("+") || operacion.Contains("-") || operacion.Contains("*") || operacion.Contains("/"))
+                    {
+                        GuardarDatos(operacion, resultadoTotal.ToString());
+                    }
+                    
+                    txtpantalla.Clear();
                 }
-                catch
+                else
                 {
                     lblResultado.Text = "Error";
                     txtpantalla.Clear();
-                    return;
                 }
-
-                lblResultado.Text = resultadoTotal.ToString();
-                GuardarDatos(operacion, resultadoTotal.ToString());
-                txtpantalla.Clear();
             }
             catch
             {
@@ -268,6 +320,7 @@ namespace Proyecto1
                 txtpantalla.Clear();
             }
         }
+
 
 
         public void detectarObjeto(Object sender)

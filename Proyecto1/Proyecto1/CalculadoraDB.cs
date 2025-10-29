@@ -34,11 +34,11 @@ namespace Proyecto1
 
                     // Obtener el último id_resultado
                     string queryId2 = "SELECT MAX(id_resultado) FROM resultado";
-                    SqlDataReader readerRes = bd.Leer(queryId2);
+                    SqlDataReader sdr = bd.Leer(queryId2);
                     int idResultado = 0;
-                    if (readerRes.Read())
-                        idResultado = readerRes.GetInt32(0);
-                    readerRes.Close();
+                    if (sdr.Read())
+                        idResultado = sdr.GetInt32(0);
+                    sdr.Close();
 
                     // Insertar en calculadora
                     string queryCalculadora = $"INSERT INTO calculadora (id_operacion, id_resultado) VALUES ({idOperacion}, {idResultado})";
@@ -55,7 +55,7 @@ namespace Proyecto1
             }
             else
             {
-                MessageBox.Show("Error al obtener historial: ");
+                MessageBox.Show("Error al obtener historial");
             }
         }
 
@@ -89,7 +89,7 @@ namespace Proyecto1
                         double resultado = reader.GetDouble(1);
                         DateTime fechaHora = reader.GetDateTime(2);
                         string fecha = fechaHora.ToString("dd/MM/yyyy");
-
+                        
                        
                         if (fecha != fechaActual || primeraFila)
                         {

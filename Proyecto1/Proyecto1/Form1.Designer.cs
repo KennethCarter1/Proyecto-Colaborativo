@@ -51,7 +51,6 @@
             this.btnOcho = new System.Windows.Forms.Button();
             this.btnPorcentaje = new System.Windows.Forms.Button();
             this.btnElevarAlCuadrado = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBorrarElemento = new System.Windows.Forms.Button();
             this.btnBorrarTodo = new System.Windows.Forms.Button();
             this.btnMasMenos = new System.Windows.Forms.Button();
@@ -65,7 +64,8 @@
             // txtpantalla
             // 
             this.txtpantalla.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpantalla.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpantalla.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtpantalla.Font = new System.Drawing.Font("Arial Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpantalla.HideSelection = false;
             this.txtpantalla.Location = new System.Drawing.Point(16, 52);
             this.txtpantalla.Multiline = true;
@@ -77,6 +77,7 @@
             // 
             // btnFactorial
             // 
+            this.btnFactorial.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnFactorial.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFactorial.Location = new System.Drawing.Point(13, 228);
             this.btnFactorial.Name = "btnFactorial";
@@ -88,6 +89,7 @@
             // 
             // btnSiete
             // 
+            this.btnSiete.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSiete.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSiete.Location = new System.Drawing.Point(12, 289);
             this.btnSiete.Name = "btnSiete";
@@ -98,6 +100,7 @@
             // 
             // btnCuatro
             // 
+            this.btnCuatro.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCuatro.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuatro.Location = new System.Drawing.Point(12, 350);
             this.btnCuatro.Name = "btnCuatro";
@@ -108,6 +111,7 @@
             // 
             // btnUno
             // 
+            this.btnUno.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnUno.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUno.Location = new System.Drawing.Point(12, 411);
             this.btnUno.Name = "btnUno";
@@ -118,21 +122,23 @@
             // 
             // btnCero
             // 
+            this.btnCero.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCero.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCero.Location = new System.Drawing.Point(78, 471);
+            this.btnCero.Location = new System.Drawing.Point(12, 472);
             this.btnCero.Name = "btnCero";
-            this.btnCero.Size = new System.Drawing.Size(60, 58);
+            this.btnCero.Size = new System.Drawing.Size(60, 55);
             this.btnCero.TabIndex = 6;
             this.btnCero.Text = "0";
             this.btnCero.UseVisualStyleBackColor = true;
             // 
             // btnPuntoDecimal
             // 
+            this.btnPuntoDecimal.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnPuntoDecimal.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPuntoDecimal.Location = new System.Drawing.Point(144, 472);
+            this.btnPuntoDecimal.Location = new System.Drawing.Point(78, 469);
             this.btnPuntoDecimal.Name = "btnPuntoDecimal";
             this.btnPuntoDecimal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnPuntoDecimal.Size = new System.Drawing.Size(60, 55);
+            this.btnPuntoDecimal.Size = new System.Drawing.Size(60, 58);
             this.btnPuntoDecimal.TabIndex = 7;
             this.btnPuntoDecimal.Text = ".";
             this.btnPuntoDecimal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -152,9 +158,9 @@
             // btnIgual
             // 
             this.btnIgual.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIgual.Location = new System.Drawing.Point(210, 472);
+            this.btnIgual.Location = new System.Drawing.Point(144, 472);
             this.btnIgual.Name = "btnIgual";
-            this.btnIgual.Size = new System.Drawing.Size(60, 55);
+            this.btnIgual.Size = new System.Drawing.Size(126, 55);
             this.btnIgual.TabIndex = 9;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = true;
@@ -162,6 +168,7 @@
             // 
             // btnSuma
             // 
+            this.btnSuma.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSuma.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuma.Location = new System.Drawing.Point(210, 411);
             this.btnSuma.Name = "btnSuma";
@@ -172,6 +179,7 @@
             // 
             // button11
             // 
+            this.button11.Cursor = System.Windows.Forms.Cursors.Default;
             this.button11.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(210, 350);
             this.button11.Name = "button11";
@@ -183,6 +191,7 @@
             // 
             // btnTres
             // 
+            this.btnTres.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnTres.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTres.Location = new System.Drawing.Point(144, 411);
             this.btnTres.Name = "btnTres";
@@ -193,6 +202,7 @@
             // 
             // btnDos
             // 
+            this.btnDos.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnDos.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDos.Location = new System.Drawing.Point(78, 411);
             this.btnDos.Name = "btnDos";
@@ -203,6 +213,7 @@
             // 
             // btnMultiplicacion
             // 
+            this.btnMultiplicacion.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnMultiplicacion.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMultiplicacion.Location = new System.Drawing.Point(210, 289);
             this.btnMultiplicacion.Name = "btnMultiplicacion";
@@ -213,6 +224,7 @@
             // 
             // btnDivision
             // 
+            this.btnDivision.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnDivision.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDivision.Location = new System.Drawing.Point(210, 228);
             this.btnDivision.Name = "btnDivision";
@@ -223,6 +235,7 @@
             // 
             // btnRaizCuadrada
             // 
+            this.btnRaizCuadrada.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnRaizCuadrada.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRaizCuadrada.Location = new System.Drawing.Point(13, 171);
             this.btnRaizCuadrada.Name = "btnRaizCuadrada";
@@ -234,6 +247,7 @@
             // 
             // btnSeis
             // 
+            this.btnSeis.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSeis.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeis.Location = new System.Drawing.Point(144, 350);
             this.btnSeis.Name = "btnSeis";
@@ -244,6 +258,7 @@
             // 
             // btnCinco
             // 
+            this.btnCinco.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCinco.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCinco.Location = new System.Drawing.Point(78, 350);
             this.btnCinco.Name = "btnCinco";
@@ -254,6 +269,7 @@
             // 
             // btnNueve
             // 
+            this.btnNueve.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnNueve.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNueve.Location = new System.Drawing.Point(144, 289);
             this.btnNueve.Name = "btnNueve";
@@ -264,6 +280,7 @@
             // 
             // btnOcho
             // 
+            this.btnOcho.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnOcho.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOcho.Location = new System.Drawing.Point(78, 289);
             this.btnOcho.Name = "btnOcho";
@@ -274,6 +291,7 @@
             // 
             // btnPorcentaje
             // 
+            this.btnPorcentaje.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnPorcentaje.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPorcentaje.Location = new System.Drawing.Point(144, 228);
             this.btnPorcentaje.Name = "btnPorcentaje";
@@ -284,6 +302,7 @@
             // 
             // btnElevarAlCuadrado
             // 
+            this.btnElevarAlCuadrado.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnElevarAlCuadrado.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnElevarAlCuadrado.Location = new System.Drawing.Point(78, 228);
             this.btnElevarAlCuadrado.Name = "btnElevarAlCuadrado";
@@ -293,19 +312,9 @@
             this.btnElevarAlCuadrado.UseVisualStyleBackColor = true;
             this.btnElevarAlCuadrado.Click += new System.EventHandler(this.btnElevarAlCuadrado_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(210, 171);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(60, 55);
-            this.btnEliminar.TabIndex = 25;
-            this.btnEliminar.Text = "DEL";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // btnBorrarElemento
             // 
+            this.btnBorrarElemento.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBorrarElemento.Font = new System.Drawing.Font("Arial Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrarElemento.Location = new System.Drawing.Point(144, 171);
             this.btnBorrarElemento.Name = "btnBorrarElemento";
@@ -318,6 +327,7 @@
             // 
             // btnBorrarTodo
             // 
+            this.btnBorrarTodo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnBorrarTodo.Font = new System.Drawing.Font("Arial Black", 18.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrarTodo.Location = new System.Drawing.Point(78, 171);
             this.btnBorrarTodo.Name = "btnBorrarTodo";
@@ -329,10 +339,11 @@
             // 
             // btnMasMenos
             // 
+            this.btnMasMenos.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnMasMenos.Font = new System.Drawing.Font("Arial Black", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMasMenos.Location = new System.Drawing.Point(12, 471);
+            this.btnMasMenos.Location = new System.Drawing.Point(210, 171);
             this.btnMasMenos.Name = "btnMasMenos";
-            this.btnMasMenos.Size = new System.Drawing.Size(60, 58);
+            this.btnMasMenos.Size = new System.Drawing.Size(60, 54);
             this.btnMasMenos.TabIndex = 28;
             this.btnMasMenos.Text = "+/-";
             this.btnMasMenos.UseVisualStyleBackColor = true;
@@ -341,6 +352,7 @@
             // lblResultado
             // 
             this.lblResultado.BackColor = System.Drawing.Color.White;
+            this.lblResultado.Cursor = System.Windows.Forms.Cursors.No;
             this.lblResultado.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultado.Location = new System.Drawing.Point(16, 13);
             this.lblResultado.Name = "lblResultado";
@@ -389,7 +401,6 @@
             this.Controls.Add(this.btnMasMenos);
             this.Controls.Add(this.btnBorrarTodo);
             this.Controls.Add(this.btnBorrarElemento);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnElevarAlCuadrado);
             this.Controls.Add(this.btnPorcentaje);
             this.Controls.Add(this.btnOcho);
@@ -412,7 +423,7 @@
             this.Controls.Add(this.btnSiete);
             this.Controls.Add(this.btnFactorial);
             this.Controls.Add(this.txtpantalla);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Calculadora";
             this.Text = "Calculadora";
@@ -447,7 +458,6 @@
         private System.Windows.Forms.Button btnOcho;
         private System.Windows.Forms.Button btnPorcentaje;
         private System.Windows.Forms.Button btnElevarAlCuadrado;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBorrarElemento;
         private System.Windows.Forms.Button btnBorrarTodo;
         private System.Windows.Forms.Button btnMasMenos;

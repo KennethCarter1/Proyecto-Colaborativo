@@ -25,7 +25,7 @@ namespace Proyecto1
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            acciones.eliminarDato();
+            
         }
 
         private void btnBorrarElemento_Click(object sender, EventArgs e)
